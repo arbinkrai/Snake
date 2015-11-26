@@ -116,8 +116,8 @@ public class DrawSnakeGamePanel extends JPanel {
 
 	private void displayKibble(Graphics g) {
 
-		//Draw the kibble in green
-		g.setColor(Color.GREEN);
+		//Draw the kibble in red
+		g.setColor(Color.RED);
 
 		int x = kibble.getKibbleX() * SnakeGame.squareSize;
 		int y = kibble.getKibbleY() * SnakeGame.squareSize;
@@ -130,13 +130,13 @@ public class DrawSnakeGamePanel extends JPanel {
 
 		LinkedList<Point> coordinates = snake.segmentsToDraw();
 		
-		//Draw head in grey
-		g.setColor(Color.LIGHT_GRAY);
+		//Draw head in green
+		g.setColor(Color.GREEN);
 		Point head = coordinates.pop();
 		g.fillRect((int)head.getX(), (int)head.getY(), SnakeGame.squareSize, SnakeGame.squareSize);
 		
-		//Draw rest of snake in black
-		g.setColor(Color.BLACK);
+		//Draw rest of snake in blue
+		g.setColor(Color.BLUE);
 		for (Point p : coordinates) {
 			g.fillRect((int)p.getX(), (int)p.getY(), SnakeGame.squareSize, SnakeGame.squareSize);
 		}
@@ -145,7 +145,8 @@ public class DrawSnakeGamePanel extends JPanel {
 
 	private void displayInstructions(Graphics g) {
         g.drawString("Press any key to begin!",100,200);		
-        g.drawString("Press q to quit the game",100,300);		
+        g.drawString("Press q to quit the game",100,300);
+		g.drawString("Press s to increase the speed",100,400);
     	}
 	
     
