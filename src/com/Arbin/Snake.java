@@ -40,7 +40,24 @@ public class Snake {
 		fillSnakeSquaresWithZeros();
 		createStartSnake();
 	}
+	//88888888888888888888888888888888888888888888888888888888888888888888888888888888888//
+	protected void wrapSnake() {
+		if (snakeHeadX > maxX) {
+			snakeHeadX = 0;
+			//snakeHeadY=this.maxY;
+		} else if (snakeHeadX <1) {
+			snakeHeadX = maxX;
+			//snakeHeadY = this.maxY;
+		} else if (snakeHeadY > maxY) {
+			snakeHeadY = 0;
+			//snakeHeadX = this.maxX;
+		} else if (snakeHeadY<11) {
+			//snakeHeadX = this.maxX;
+			snakeHeadY = maxY;
+		}
 
+	}
+	//88888888888888888888888888888888888888888888888888888888888888888888888888888888//
 	protected void createStartSnake(){
 		//snake starts as 3 horizontal squares in the center of the screen, moving left
 		int screenXCenter = (int) maxX/2;  //Cast just in case we have an odd number
@@ -106,10 +123,10 @@ public class Snake {
 		currentHeading = DIRECTION_RIGHT;
 	}
 
-//	public void	eatKibble(){
-//		//record how much snake needs to grow after eating food
-//		justAteMustGrowThisMuch += growthIncrement;
-//	}
+	public void	eatKibble(){
+		//record how much snake needs to grow after eating food
+		justAteMustGrowThisMuch += growthIncrement;
+	}
 
 	protected void moveSnake(){
 		//Called every clock tick
@@ -132,8 +149,8 @@ public class Snake {
 		
 		//Did you hit the wall, snake? 
 		//Or eat your tail? Don't move. 
-
-		if (hitWall == true || ateTail == true) {
+		if (ateTail == true) {
+		//***********if (hitWall == true || ateTail == true) {*******************************************
 			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 			return;
 		}
@@ -177,11 +194,21 @@ public class Snake {
 		}
 
 		//Does this make snake hit the wall?
-		if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {
-			hitWall = true;	
-			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+
+			//*********if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {*****
+		if (snakeHeadX >= maxX || snakeHeadX <0 || snakeHeadY >= maxY || snakeHeadY <0 ) {
+//*****hitWall=true;*****************************************************************
+			wrapSnake();
+			//*********** SnakeGame.setGameStage(SnakeGame.GAME_OVER);********************
 			return;
 		}
+
+//		if (snakeHeadX > maxX || snakeHeadX < 0 || snakeHeadY > maxY || snakeHeadY < 0 ) {
+//			hitWall=true;
+//
+//			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+//			return;
+//		}
 
 		//Does this make the snake eat its tail?
 
@@ -237,7 +264,7 @@ public class Snake {
 	public boolean didEatKibble(Kibble kibble) {
 		//Is this kibble in the snake? It should be in the same square as the snake's head
 		if (kibble.getKibbleX() == snakeHeadX && kibble.getKibbleY() == snakeHeadY){
-			justAteMustGrowThisMuch += growthIncrement;
+			//justAteMustGrowThisMuch += growthIncrement;
 			return true;
 		}
 		return false;
@@ -274,7 +301,7 @@ public class Snake {
 	}
 
 	public void reset() {
-		hitWall = false;
+		//hitWall = false;****************************************************************************************
 		ateTail = false;
 		fillSnakeSquaresWithZeros();
 		createStartSnake();
@@ -282,7 +309,8 @@ public class Snake {
 	}
 
 	public boolean isGameOver() {
-		if (hitWall == true || ateTail == true){
+		if (ateTail == true){
+		//if (hitWall == true || ateTail == true){***********************************************************
 			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 			return true;
 			

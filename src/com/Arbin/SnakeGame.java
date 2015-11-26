@@ -80,7 +80,7 @@ public class SnakeGame {
 	protected static void newGame() {
 		Timer timer = new Timer();
 		GameClock clockTick = new GameClock(snake, kibble, score, snakePanel);
-		timer.scheduleAtFixedRate(clockTick, 0 , clockInterval);
+		timer.scheduleAtFixedRate(clockTick, 0, clockInterval);
 	}
 
 	public static void main(String[] args) {

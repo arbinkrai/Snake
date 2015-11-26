@@ -33,6 +33,7 @@ public class GameClock extends TimerTask {
 				if (snake.didEatKibble(kibble) == true) {		
 					//tell kibble to update
 					kibble.moveKibble(snake);
+					snake.eatKibble();
 					Score.increaseScore();
 				}
 				break;
