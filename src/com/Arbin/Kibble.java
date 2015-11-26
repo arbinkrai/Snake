@@ -22,6 +22,14 @@ public class Kibble {
 		
 		moveKibble(s);
 	}
+
+	/*codes immediate below for the obstruction could be done by assigning
+	 *the blocks with a value that is non zero that the
+	 *snake cannot get and once the snakehead hits the block (grid)
+	 * then we can set the game to be over*/
+
+
+	//codes below for the obstruction
 //	public void wall(){
 //		Random rand=new Random();
 //		boolean kibbleInSnake = true;
@@ -30,6 +38,8 @@ public class Kibble {
 //		wallY=rand.nextInt()(SnakeGame.ySquares);
 //		wallInSnake=s.isSnakeSegment(wallX,wallY);
 //	}}
+
+
 	protected void moveKibble(Snake s){
 		
 		Random rng = new Random();

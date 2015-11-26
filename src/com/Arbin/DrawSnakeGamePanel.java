@@ -18,7 +18,7 @@ public class DrawSnakeGamePanel extends JPanel {
 	private Kibble kibble;
 	private Score score;
 	
-	DrawSnakeGamePanel(Snake s, Kibble k, Score sc){
+	DrawSnakeGamePanel(Snake s, Kibble k, Score sc){//constructor for the class "DrawSnakeGamePanel
 		this.snake = s;
 		this.kibble = k;
 		this.score = sc;
@@ -94,7 +94,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		displayKibble(g);	
 	}
 
-	private void displayGameGrid(Graphics g) {
+	private void displayGameGrid(Graphics g) {//codes for the grids grphics
 
 		int maxX = SnakeGame.xPixelMaxDimension;
 		int maxY= SnakeGame.yPixelMaxDimension;
@@ -102,7 +102,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		
 		g.clearRect(0, 0, maxX, maxY);
 
-		g.setColor(Color.RED);
+		g.setColor(Color.RED);//sets the color of the to grid red
 
 		//Draw grid - horizontal lines
 		for (int y=0; y <= maxY ; y+= squareSize){			
@@ -142,7 +142,7 @@ public class DrawSnakeGamePanel extends JPanel {
 		}
 
 	}
-
+//displaying the information for the player with the x and y cordinate location
 	private void displayInstructions(Graphics g) {
         g.drawString("Press any key to begin!",100,200);		
         g.drawString("Press q to quit the game",100,300);

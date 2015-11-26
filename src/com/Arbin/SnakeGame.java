@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class SnakeGame {
 
-	public final static int xPixelMaxDimension = 501;  //Pixels in window. 501 to have 50-pixel squares plus 1 to draw a border on last square
-	public final static int yPixelMaxDimension = 501;
+	public final static int xPixelMaxDimension = 5001;  //Pixels in window. 500  plus 1 to draw a border on last square
+	public final static int yPixelMaxDimension = 5001;
 
 	public static int xSquares ;
 	public static int ySquares ;
@@ -80,7 +80,7 @@ public class SnakeGame {
 	protected static void newGame() {
 		Timer timer = new Timer();
 		GameClock clockTick = new GameClock(snake, kibble, score, snakePanel);
-		timer.scheduleAtFixedRate(clockTick, 0, clockInterval);
+		timer.scheduleAtFixedRate(clockTick, 0, clockInterval);//0 allows the snake to start moving right away
 	}
 
 	public static void main(String[] args) {

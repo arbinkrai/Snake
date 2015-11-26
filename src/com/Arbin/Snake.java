@@ -10,8 +10,8 @@ public class Snake {
 	final int DIRECTION_LEFT = 2;
 	final int DIRECTION_RIGHT = 3;  //These are completely arbitrary numbers. 
 
-	private boolean hitWall = false;
-	private boolean ateTail = false;
+	private boolean hitWall = false;//setting the default to false
+	private boolean ateTail = false;//setting the default to false
 
 	private int snakeSquares[][];  //represents all of the squares on the screen
 	//NOT pixels!
@@ -152,7 +152,7 @@ public class Snake {
 		//Did you hit the wall, snake? 
 		//Or eat your tail? Don't move. 
 //		if (hitWall == true || ateTail == true){
-		if (ateTail == true){
+		if (ateTail == true){//the condition is only for the one the snake wraps around when it hits the end of grid
 			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 			return;
 		}
@@ -204,13 +204,13 @@ public class Snake {
 //			//*********** SnakeGame.setGameStage(SnakeGame.GAME_OVER);********************
 //			return;
 //		}
-
+//***************************************************************************************************
 		if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {
-			//hitWall=true;
+
 			wrapSnake();//using the wrapSnake method
-			//SnakeGame.setGameStage(SnakeGame.GAME_OVER);
-			return;
-		}
+
+			return;}
+//******************************************************************************************************
 
 		//Does this make the snake eat its tail?
 
