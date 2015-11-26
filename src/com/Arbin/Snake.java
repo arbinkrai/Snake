@@ -41,18 +41,17 @@ public class Snake {
 		createStartSnake();
 	}
 	//88888888888888888888888888888888888888888888888888888888888888888888888888888888888//
-	protected void wrapSnake() {
-		if (snakeHeadX > maxX) {
-			snakeHeadX = 0;
-			//snakeHeadY=this.maxY;
-		} else if (snakeHeadX <1) {
+	protected void wrapSnake() {//created a wrapSnake
+		if (snakeHeadX >maxX) {
+			snakeHeadX = -1;
+		} else if (snakeHeadX <0) {
 			snakeHeadX = maxX;
-			//snakeHeadY = this.maxY;
+
 		} else if (snakeHeadY > maxY) {
-			snakeHeadY = 0;
-			//snakeHeadX = this.maxX;
-		} else if (snakeHeadY<11) {
-			//snakeHeadX = this.maxX;
+			snakeHeadY = -1;
+
+		} else if (snakeHeadY<0) {
+
 			snakeHeadY = maxY;
 		}
 
@@ -146,11 +145,14 @@ public class Snake {
 		if (currentHeading == DIRECTION_RIGHT && lastHeading == DIRECTION_LEFT) {
 			currentHeading = DIRECTION_LEFT; //keep going the same way
 		}
-		
+//		if (snakeHeadX==0){//***************************************************************
+//			snakeHeadX=maxY;
+//		}
+
 		//Did you hit the wall, snake? 
 		//Or eat your tail? Don't move. 
-		if (ateTail == true) {
-		//***********if (hitWall == true || ateTail == true) {*******************************************
+//		if (hitWall == true || ateTail == true){
+		if (ateTail == true){
 			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
 			return;
 		}
@@ -195,20 +197,20 @@ public class Snake {
 
 		//Does this make snake hit the wall?
 
-			//*********if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {*****
-		if (snakeHeadX >= maxX || snakeHeadX <0 || snakeHeadY >= maxY || snakeHeadY <0 ) {
-//*****hitWall=true;*****************************************************************
-			wrapSnake();
-			//*********** SnakeGame.setGameStage(SnakeGame.GAME_OVER);********************
-			return;
-		}
-
-//		if (snakeHeadX > maxX || snakeHeadX < 0 || snakeHeadY > maxY || snakeHeadY < 0 ) {
-//			hitWall=true;
-//
-//			SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+//			//*********if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {*****
+//		if (snakeHeadX >= maxX || snakeHeadX <0 || snakeHeadY >= maxY || snakeHeadY <0 ) {
+////*****hitWall=true;*****************************************************************
+//			wrapSnake();
+//			//*********** SnakeGame.setGameStage(SnakeGame.GAME_OVER);********************
 //			return;
 //		}
+
+		if (snakeHeadX >= maxX || snakeHeadX < 0 || snakeHeadY >= maxY || snakeHeadY < 0 ) {
+			//hitWall=true;
+			wrapSnake();//using the wrapSnake method
+			//SnakeGame.setGameStage(SnakeGame.GAME_OVER);
+			return;
+		}
 
 		//Does this make the snake eat its tail?
 
