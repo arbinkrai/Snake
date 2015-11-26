@@ -1,7 +1,7 @@
 package com.Arbin;
 
 import java.util.Random;
-
+import java.awt.Graphics;
 public class Kibble {
 
 	/** Identifies a random square to display a kibble
@@ -11,7 +11,10 @@ public class Kibble {
 	
 	private int kibbleX; //This is the square number (not pixel)
 	private int kibbleY;  //This is the square number (not pixel)
-	
+//	private int wallX;
+//	private int wallY;
+//	private int wallX1;
+//	private int wallY1;
 	public Kibble(Snake s){
 		//Kibble needs to know where the snake is, so it does not create a kibble in the snake
 		//Pick a random location for kibble, check if it is in the snake
@@ -19,7 +22,14 @@ public class Kibble {
 		
 		moveKibble(s);
 	}
-	
+//	public void wall(){
+//		Random rand=new Random();
+//		boolean kibbleInSnake = true;
+//		while(wallInSnake==ture){
+//		wallX=rand.nextInt()(SnakeGame.xSquares);
+//		wallY=rand.nextInt()(SnakeGame.ySquares);
+//		wallInSnake=s.isSnakeSegment(wallX,wallY);
+//	}}
 	protected void moveKibble(Snake s){
 		
 		Random rng = new Random();
